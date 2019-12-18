@@ -5,10 +5,19 @@ ALBERT (ensemble model)
 Zhiyan Technology
 
 ## Model Description: 
-We only used the question and choices without any extra data. 
-For one sample, We concatenated them such as `<cls> question_tokens <sep> choice_tokens <sep> `for every choice. And using `mutlichoice` train mode.
+We conduct our experiments on the provided question-choices pairs without extra data. 
+
+For each sample, five parts are concatenated into one string with the following formats:
+
+`<cls> question_tokens <sep> choice_tokens <sep> `
+
+Then the system is trained based on `Multiple-Choice`, and the formats are:
+
 `question_tokens = 'Q: ' + question`，
 `choice_tokens = 'A: ' + choice`
+
+Here are our forward function example:
+
 ```
 def forward(input_ids):
    """
@@ -21,9 +30,8 @@ def forward(input_ids):
    return cls_output
 ```
 
-
 ## Experiment Details: 
-In our experiments, we used the pre-trained ALBERT-xxlarge-v2 model from https://github.com/google-research/ALBERT. The accuracy is 83.7%/76.5% on the dev/test dataset. And the single model's accuracy is 80.9%/80.0%/80.5%/81.2%/80.4% on the dev dataset(using 5 different seed). The parameters are listed as below:
+In our experiments, we used the pre-trained ALBERT-xxlarge-v2 model from https://github.com/google-research/ALBERT. The accuracy is 83.7%/76.5% on the dev/test dataset. And accessories with five different seeds of the single model is 80.9%/80.0%/80.5%/81.2%/80.4% respectively on the dev dataset. The parameters are listed below:
 - `sequence_summary function` concatenate the last 4 layers of ALBERT
 - `classifier function` use a fc-layer
 - MAX_SEQ_LENGTH = 80
