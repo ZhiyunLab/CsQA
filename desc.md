@@ -9,12 +9,21 @@ We conduct our experiments on the provided question-choices pairs without extra 
 
 For each sample, five parts are concatenated into one string with the following formats:
 
-`<cls> question_tokens <sep> choice_tokens <sep> `
+`input1_tokens = <cls> question_tokens <sep> choice1_tokens <sep>,`
 
-Then the system is trained based on `Multiple-Choice`, and the formats are:
+`input2_tokens = <cls> question_tokens <sep> choice2_tokens <sep>,`
+
+`input3_tokens = <cls> question_tokens <sep> choice3_tokens <sep>,`
+
+`input4_tokens = <cls> question_tokens <sep> choice4_tokens <sep>,`
+
+`input5_tokens = <cls> question_tokens <sep> choice5_tokens <sep>`
+   
+Then concat five input tokens as input like `Multiple-Choice` reading comprehension, and the formats are:
 
 `question_tokens = 'Q: ' + question`，
-`choice_tokens = 'A: ' + choice`
+`choice1_tokens = 'A: ' + choice1`, 
+
 
 Here are our forward function example:
 
