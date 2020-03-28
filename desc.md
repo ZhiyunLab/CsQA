@@ -31,7 +31,7 @@ def forward(input_ids):
 ```
 
 ## Experiment Details: 
-In our experiments, we used the pre-trained ALBERT-xxlarge-v2 model from https://github.com/google-research/ALBERT. The accuracy is 83.7%/76.5% on the dev/test dataset. And accessories with five different seeds of the single model is 80.9%/80.0%/80.5%/81.2%/80.4% respectively on the dev dataset. The parameters are listed below:
+In our experiments, we used the pre-trained ALBERT-xxlarge-v2 model from https://github.com/google-research/ALBERT. The accuracy is 83.7%/76.5% on the dev/test dataset. And the accuracy with five different seeds of the single model is 80.9%/80.0%/80.5%/81.2%/80.4% respectively on the dev dataset. The parameters are listed below:
 - `sequence_summary function` concatenate the last 4 layers of ALBERT
 - `classifier function` use a fc-layer
 - MAX_SEQ_LENGTH = 80
